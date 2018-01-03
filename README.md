@@ -1,10 +1,10 @@
 # Optimization For Sentence Classification Problem
 
-The problem is to optimize the model parameters and word embeddings for a sentence classification problem. An alternate optimization technique is currently implement to solve this problem. 
+The problem is to optimize the model parameters and word embeddings for a sentence classification problem. An alternate optimization technique is currently implemented to solve this problem. 
 
 ## Alternate Optimization Technique
 
-The alternate optimization technique optimizes the model parameters and the word embeddings alternatively in order to improve the accuracy and get improved results. The alternate optimization algorithm is mentioned below step-wise:
+The alternate optimization technique optimizes the model parameters and the word embeddings alternatively in order to increase the accuracy and get improved results. The alternate optimization algorithm is mentioned below step-wise:
 
 1. Initialize the required constants for various gradient descent algorithms
 2. Initialize words with their corresponding word embeddings(From Google word2vec Miklov) and the model parameters with a simple random function
