@@ -48,14 +48,16 @@ Alternative : Found under the section, Pre-trained word and phrase vectors -> ht
 2. Download the representations for words from the link(https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?usp=sharing)
 3. Run the file " " using the command
 If running the code in the background, mention the number of epochs to run in the place _no. of epochs_
+
 '''
 (echo no. of epochs| nohup python Sentence_Classification_With_Gradient_Descent_The_End_Alternate_Optimization_Technique.py > Sentence_Classification_Alternate_Optimize_Final_log_file.txt)&
+'''
 
 For example:
 (echo 1500| nohup python Sentence_Classification_With_Gradient_Descent_The_End_Alternate_Optimization_Technique.py > Sentence_Classification_Alternate_Optimize_Final_log_file.txt)&
-'''
 
 Otherwise, and enter the number of epochs to run
+
 '''
 python Sentence_Classification_With_Gradient_Descent_The_End_Alternate_Optimization_Technique.py
 '''
