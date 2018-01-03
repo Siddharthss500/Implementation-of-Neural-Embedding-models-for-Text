@@ -40,6 +40,22 @@ Three datasets are used in this experiment. These datasets are taken from Kaggle
 In the aim of assigning a representation for each word in the corpus, the word embeddings that were created by Google new data (Mikolov - https://arxiv.org/pdf/1310.4546.pdf) are used in the experiment.
 
 Link of the dataset : https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?usp=sharing
-Alternative Link : Found under the section, Pre-trained word and phrase vectors -> https://code.google.com/archive/p/word2vec/
+Alternative : Found under the section, Pre-trained word and phrase vectors -> https://code.google.com/archive/p/word2vec/
 
 # Steps to run the code
+
+1. Download the datasets from the link(https://www.kaggle.com/rahulin05/sentiment-labelled-sentences-data-set)
+2. Download the representations for words from the link(https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?usp=sharing)
+3. Run the file " " using the command
+If running the code in the background, mention the number of epochs to run in the place _no. of epochs_
+'''
+(echo no. of epochs| nohup python Sentence_Classification_With_Gradient_Descent_The_End_Alternate_Optimization_Technique.py > Sentence_Classification_Alternate_Optimize_Final_log_file.txt)&
+
+For example:
+(echo 1500| nohup python Sentence_Classification_With_Gradient_Descent_The_End_Alternate_Optimization_Technique.py > Sentence_Classification_Alternate_Optimize_Final_log_file.txt)&
+'''
+
+Otherwise, and enter the number of epochs to run
+'''
+python Sentence_Classification_With_Gradient_Descent_The_End_Alternate_Optimization_Technique.py
+'''
