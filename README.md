@@ -24,7 +24,7 @@ Five gradient descent algorithms are used along with the three gradient descent 
 2. Stochastic Gradient Variant
 3. Mini-Batch Gradient Variant
 
-The five gradient descent algorithms that are used in this experiment are:
+The five gradient descent algorithms that are implemented in this experiment are:
 
 1. Gradient Descent Algorithm
 2. Momentum Algorithm
@@ -60,7 +60,7 @@ If running the code in the background, mention the number of epochs to run in th
 ```
 For example:
 ```
-(echo 1500| nohup python Sentence_Classification_With_Gradient_Descent_Using_Alternate_Optimization_Technique.py > Sentence_Classification_Alternate_Optimize_Final_log_file.txt)&
+(echo 15| nohup python Sentence_Classification_With_Gradient_Descent_Using_Alternate_Optimization_Technique.py > Sentence_Classification_Alternate_Optimize_Final_log_file.txt)&
 ```
 
 Otherwise run the following command, and enter the number of epochs to run as the input
