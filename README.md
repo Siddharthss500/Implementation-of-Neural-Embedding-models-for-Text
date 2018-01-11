@@ -8,13 +8,13 @@ The alternate optimization technique optimizes the model parameters and the word
 
 1. Initialize the required constants for various gradient descent algorithms
 2. Initialize words with their corresponding word embeddings(From Google word2vec Miklov) and the model parameters with a simple random function
-3. Enter a loop : for t = 0 to T-1 (For the total number of epochs)
-  a. Enter a loop : for n = 0 to N-1 (Inner loop for model parameter optimization)
-    i.  Compute the gradient of the model parameter and apply the update
-    ii. Compute the accuracy to check for improvement
-  b. Enter a loop : for n = 0 to N-1 (Inner loop for word embeddings optimization)
-    i.  Compute the gradient of the word embeddings and apply the update
-    ii. Compute the accuracy to check for improvement
+3. Enter a loop : for t = 0 to T-1 (For the total number of epochs) <br />
+  a. Enter a loop : for n = 0 to N-1 (Inner loop for model parameter optimization) <br />
+    -> Compute the gradient of the model parameter and apply the update <br />
+    -> Compute the accuracy to check for improvement <br />
+  b. Enter a loop : for n = 0 to N-1 (Inner loop for word embeddings optimization) <br />
+    -> Compute the gradient of the word embeddings and apply the update <br />
+    -> Compute the accuracy to check for improvement <br />
 
 ## Optimization Algorithms
 
