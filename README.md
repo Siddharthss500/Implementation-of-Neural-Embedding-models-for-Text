@@ -9,9 +9,12 @@ The alternate optimization technique optimizes the model parameters and the word
 1. Initialize the required constants for various gradient descent algorithms
 2. Initialize words with their corresponding word embeddings(From Google word2vec Miklov) and the model parameters with a simple random function
 3. Enter a loop : for t = 0 to T-1 (For the total number of epochs)
-  a. Compute the gradient of the model parameter and apply the update
-  b. Compute the gradient of the word embeddings and apply the update
-  c. Compute the accuracy to check for improvement
+  a. Enter a loop : for n = 0 to N-1 (Inner loop for model parameter optimization)
+    -> Compute the gradient of the model parameter and apply the update
+    -> Compute the accuracy to check for improvement
+  b. Enter a loop : for n = 0 to N-1 (Inner loop for word embeddings optimization)
+    -> Compute the gradient of the word embeddings and apply the update
+    -> Compute the accuracy to check for improvement
 
 ## Optimization Algorithms
 
@@ -27,7 +30,9 @@ The five gradient descent algorithms that are used in this experiment are:
 2. Momentum Algorithm
 3. Nesterov Accelerated Gradient Algorithm
 4. Adaptive Gradient Algorithm
-5. Root-Mean-Square Progpagation Algorithm
+5. Root-Mean-Square Propagation Algorithm
+
+In this code, only mini-batch gradient variant is implemented. The next update will have the implementation for the remaining two variants.
 
 ## Datasets used in the experiment
 
@@ -46,19 +51,19 @@ Alternative : Found under the section, Pre-trained word and phrase vectors -> ht
 
 1. Download the datasets from the link(https://www.kaggle.com/rahulin05/sentiment-labelled-sentences-data-set)
 2. Download the representations for words from the link(https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?usp=sharing)
-3. Run the file "**Sentence_Classification_With_Gradient_Descent_The_End_Alternate_Optimization_Technique.py**" using the command
+3. Run the file "**Sentence_Classification_With_Gradient_Descent_Using_Alternate_Optimization_Technique.py**" using the command
 
 If running the code in the background, mention the number of epochs to run in the place "*no. of epochs*"
 
 ```
-(echo no. of epochs| nohup python Sentence_Classification_With_Gradient_Descent_The_End_Alternate_Optimization_Technique.py > Sentence_Classification_Alternate_Optimize_Final_log_file.txt)&
+(echo no. of epochs| nohup python Sentence_Classification_With_Gradient_Descent_Using_Alternate_Optimization_Technique.py > Sentence_Classification_Alternate_Optimize_Final_log_file.txt)&
 ```
 For example:
 ```
-(echo 1500| nohup python Sentence_Classification_With_Gradient_Descent_The_End_Alternate_Optimization_Technique.py > Sentence_Classification_Alternate_Optimize_Final_log_file.txt)&
+(echo 1500| nohup python Sentence_Classification_With_Gradient_Descent_Using_Alternate_Optimization_Technique.py > Sentence_Classification_Alternate_Optimize_Final_log_file.txt)&
 ```
 
 Otherwise run the following command, and enter the number of epochs to run as the input
 ```
-python Sentence_Classification_With_Gradient_Descent_The_End_Alternate_Optimization_Technique.py
+python Sentence_Classification_With_Gradient_Descent_Using_Alternate_Optimization_Technique.py
 ```
