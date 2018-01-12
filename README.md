@@ -2,7 +2,9 @@
 
 The problem is to optimize the model parameters and word embeddings for a sentence classification problem. An alternate optimization technique is currently implemented which optimizes model parameters along with word embeddings. 
 
-The next step is to buils a non-linear classifier model in tensorflow which implements an attention based mechanism.
+### Next Step
+
+The next step is to build a non-linear classifier model in tensorflow which implements an attention based mechanism.
 
 ## Scope of the project
 
@@ -68,7 +70,7 @@ Otherwise run the following command, and enter the number of epochs to run as th
 python Sentence_Classification_With_Gradient_Descent_Using_Alternate_Optimization_Technique.py
 ```
 
-# Next Steps
+# Things to do
 
 1. Create separate codes having different functionalities such as: </br>
   -> Various Gradient Descent algorithms along with the Gradient Descent variants </br>
