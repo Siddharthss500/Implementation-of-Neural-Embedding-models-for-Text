@@ -1,10 +1,14 @@
 # Optimization For Sentence Classification Problem
 
-The problem is to optimize the model parameters and word embeddings for a sentence classification problem. An alternate optimization technique is currently implemented which optimizes model parameters along with word embeddings. 
+Introduction to be written here - One small paragraph
+
+About the problem and what is done here
+
+An alternate optimization technique is currently implemented which optimizes model parameters along with word embeddings. 
 
 ### Next Step
 
-The next step is to build a non-linear classifier model in tensorflow which implements an attention based mechanism.
+To build a non-linear classifier model by implementing an attention based mechanism using tensorflow.
 
 ## Scope of the project
 
