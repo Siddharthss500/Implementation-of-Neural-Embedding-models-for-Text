@@ -2,27 +2,23 @@
 
 The problem is to optimize the model parameters and word embeddings for a sentence classification problem. An alternate optimization technique is currently implemented to solve this problem. 
 
-## Alternate Optimization Technique
+## Scope of the project
 
-The alternate optimization technique optimizes the model parameters and the word embeddings alternatively in order to increase the accuracy and get improved results. The alternate optimization algorithm is mentioned below step-wise:
+The optimization takes place at three stages. The three stages are :
 
-1. Initialize the required constants for various gradient descent algorithms
-2. Initialize words with their corresponding word embeddings(From Google word2vec Miklov) and the model parameters with a simple random function
-3. Enter a loop : for t = 0 to T-1 (For the total number of epochs) <br />
-  a. Enter a loop : for n = 0 to N-1 (Inner loop for model parameter optimization) <br />
-    -> Compute the gradient of the model parameter and apply the update <br />
-    -> Compute the accuracy to check for improvement <br />
-  b. Enter a loop : for n = 0 to N-1 (Inner loop for word embeddings optimization) <br />
-    -> Compute the gradient of the word embeddings and apply the update <br />
-    -> Compute the accuracy to check for improvement <br />
+1. Model parmaters - (Mention the code name here) </br>
+2. Word Embeddings - (Mention the code name here) </br>
+3. Attention based mechanism - Future scope </br>
+
+Currently only the first two have been implented and the codes are present above. The attention based mechanism will be implemented in tensor flow by building a non-linear model.
 
 ## Optimization Algorithms
 
-Five gradient descent algorithms are used along with the three gradient descent variants in the aim of optimizing the objective function to get a better trained model. The three gradient descent variants are:
+Five gradient descent algorithms are used along with the three gradient descent variants in the aim of optimizing the objective function to get a better trained model. Gradient descent variants are chosen based on the sample size of the dataset that needs to be taken at a time. The three types of gradient descent variants are:
 
-1. Batch Gradient Variant
-2. Stochastic Gradient Variant
-3. Mini-Batch Gradient Variant
+1. Batch Gradient Variant - In this variant, the complete dataset is taken at a time to compute the variant </br>
+2. Stochastic Gradient Variant - In this variant, one random example from the dataset is taken to compute the variant </br>
+3. Mini-Batch Gradient Variant - In this variant, a set of examples in the form of a mini-batch are taken at a time to compute the gradient </br>
 
 The five gradient descent algorithms that are implemented in this experiment are:
 
@@ -32,15 +28,17 @@ The five gradient descent algorithms that are implemented in this experiment are
 4. Adaptive Gradient Algorithm
 5. Root-Mean-Square Propagation Algorithm
 
+Reference for the methods/algorithms implemented - http://ruder.io/optimizing-gradient-descent/
+
 In this code, only mini-batch gradient variant is implemented. The next update will have the implementation for the remaining two variants.
 
 ## Datasets used in the experiment
 
 Three datasets are used in this experiment. These datasets are taken from Kaggle - https://www.kaggle.com/rahulin05/sentiment-labelled-sentences-data-set. Each dataset contains 1000 sentences (500 positive and 500 negative) along with their corresponding labels. The datasets are:
 
-1. Amazon product review dataset
-2. IMDB movie review dataset
-3. Yelp restaurant review dataset
+1. Amazon product review dataset - This dataset contains the review of customers for various products on the Amazon website which is labelled as either 1/0 i.e good/bad (binary classification problem) </br>
+2. IMDB movie review dataset - This dataset contains the review of customers for different movies on the IMDB website which is labelled as either 1/0 i.e good/bad (binary classification problem) </br>
+3. Yelp restaurant review dataset - This dataset contains the review of customers for different restaurants on the yelp website which is labelled as either 1/0 i.e good/bad (binary classification problem) </br>
 
 In the aim of assigning a representation for each word in the corpus, the word embeddings that were created by Google new data (Mikolov - https://arxiv.org/pdf/1310.4546.pdf) are used in the experiment.
 
