@@ -1,12 +1,14 @@
 # Optimization For Sentence Classification Problem
 
-The problem is to optimize the model parameters and word embeddings for a sentence classification problem. An alternate optimization technique is currently implemented to solve this problem. 
+The problem is to optimize the model parameters and word embeddings for a sentence classification problem. An alternate optimization technique is currently implemented which optimizes model parameters along with word embeddings. 
+
+The next step is to buils a non-linear classifier model in tensorflow which implements an attention based mechanism.
 
 ## Scope of the project
 
 The optimization takes place at three stages. The three stages are :
 
-1. **Model parmaters** - (Mention the code name here) </br>
+1. **Model parameters** - (Mention the code name here) </br>
 2. **Word Embeddings** - (Mention the code name here) </br>
 3. **Attention based mechanism** - Future scope </br>
 
@@ -68,7 +70,7 @@ python Sentence_Classification_With_Gradient_Descent_Using_Alternate_Optimizatio
 
 # Next Steps
 
-1. Create separate codes having different functionalities such as:
+1. Create separate codes having different functionalities such as: </br>
   -> Various Gradient Descent algorithms along with the Gradient Descent variants </br>
   -> Clean the input file and compute word representation using Google word2vec </br>
 2. Modify the code to give more accessibility to the user i.e the user will be able to control the learning rate, select the algorithm to run along with a variant
