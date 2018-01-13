@@ -36,22 +36,22 @@ In this code, only mini-batch gradient variant is implemented. The next update w
 
 ## Datasets used in the experiment
 
-Three datasets are used in this experiment. These datasets are taken from Kaggle - https://www.kaggle.com/rahulin05/sentiment-labelled-sentences-data-set. Each dataset contains 1000 sentences (500 positive and 500 negative) along with their corresponding labels. The datasets are:
+Three publicly available datasets are used for experimentation. Each dataset contains 1000 sentences (500 positive and 500 negative) along with their corresponding labels. All are binary classification problems with class labels (good,bad). The datasets are:
 
-1. **Amazon product review dataset** - This dataset contains the review of customers for various products on the Amazon website which is labelled as either 1/0 i.e good/bad (binary classification problem) </br>
-2. **IMDB movie review dataset** - This dataset contains the review of customers for different movies on the IMDB website which is labelled as either 1/0 i.e good/bad (binary classification problem) </br>
-3. **Yelp restaurant review dataset** - This dataset contains the review of customers for different restaurants on the yelp website which is labelled as either 1/0 i.e good/bad (binary classification problem) </br>
+1. **Amazon product review dataset** - This dataset contains customer reviews for various products from the Amazon website. </br>
+2. **IMDB movie review dataset** - This dataset contains customer reviews for various movies from the IMDB website. </br>
+3. **Yelp restaurant review dataset** - This dataset contains reviews of customers for restaurants from the yelp website.</br>
 
-In the aim of assigning a representation for each word in the corpus, the word embeddings that were created by Google new data (Mikolov - https://arxiv.org/pdf/1310.4546.pdf) are used in the experiment.
+We used word embeddings that were created by Google news data (Mikolov - https://arxiv.org/pdf/1310.4546.pdf).
 
 Link of the dataset : https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?usp=sharing
 Alternative : Found under the section, Pre-trained word and phrase vectors -> https://code.google.com/archive/p/word2vec/
 
 # Steps to run the code
 
-1. Download the datasets from the link(https://www.kaggle.com/rahulin05/sentiment-labelled-sentences-data-set)
-2. Download the representations for words from the link(https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?usp=sharing)
-3. Run the file "**Sentence_Classification_Opt_Model_Param.py**" using the command
+1. Download the datasets (File name: sentiment-labelled-sentences-data-set.zip) and unzip the file
+2. Download the word representations from any of the links (https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?usp=sharing, https://code.google.com/archive/p/word2vec/)
+3. Run the file "**Sentence_Classification_Opt_Model_Param.py**" as instructed below:
 
 If running the code in the background, mention the number of epochs to run in the place "*no. of epochs*"
 
@@ -73,5 +73,5 @@ python Sentence_Classification_Opt_Model_Param.py
 1. Create separate codes having different functionalities such as: </br>
   -> Various Gradient Descent algorithms along with the Gradient Descent variants </br>
   -> Clean the input file and compute word representation using Google word2vec </br>
-2. Modify the code to become more user friendly by giving more accessibility to the user i.e the user will be able to control the learning rate, select the algorithm to run along with a variant
+2. Modify the code to become more user friendly with controlability to the user i.e the user will be able to control the learning rate, select the algorithm to run along with a variant, modifying the input dataset and storing output, etc.
 
