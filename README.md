@@ -1,4 +1,4 @@
-# Optimization For Sentence Classification Problem
+# Implementation of Neural Embedding models for Text
 
 We consider the problem of designing attention based neural models for text applications such as sentence classification. We investigate several approaches and models to represent sentences for classification purpose. These include representing sentences using simple linear/non-linear combiner of word embeddings (with and without word embeddings optimization) and, Recurrent Neural Networks (RNNs) with and without attention mechanisms. Attention mechanism helps to focus on parts of sentences relevant for the task at hand. There are three sets of parameters: classifier model parameters, sentence representation parameters (along with word embeddings) and attention model parameters; and, optimization can be done for various combinations of these sets.
 
