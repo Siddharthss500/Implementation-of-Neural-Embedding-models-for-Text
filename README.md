@@ -12,9 +12,11 @@ To build a non-linear classifier model by implementing an attention based mechan
 
 The optimization takes place at three stages. The three stages are :
 
-1. **Model parameters** - (Mention the code name here) </br>
-2. **Word Embeddings** - (Mention the code name here) </br>
-3. **Attention based mechanism** - Future scope </br>
+1. **Model parameters** - Sentence_Classification_Opt_Model_Param.py </br>
+2. **Word Embeddings** - Sentence_Classification_Opt_Mod_Param_And_Wrd_Emd.py </br>
+3. **Attention based mechanism** - Next step </br>
+
+The alternate optimization technique is in its last stages of quality check. The attention based mechanism will be implemented post that.
 
 ## Optimization Algorithms
 
