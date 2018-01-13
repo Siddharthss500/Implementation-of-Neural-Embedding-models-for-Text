@@ -55,21 +55,21 @@ Alternative : Found under the section, Pre-trained word and phrase vectors -> ht
 
 1. Download the datasets from the link(https://www.kaggle.com/rahulin05/sentiment-labelled-sentences-data-set)
 2. Download the representations for words from the link(https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?usp=sharing)
-3. Run the file "**Sentence_Classification_With_Gradient_Descent_Using_Alternate_Optimization_Technique.py**" using the command
+3. Run the file "**Sentence_Classification_Opt_Model_Param.py**" using the command
 
 If running the code in the background, mention the number of epochs to run in the place "*no. of epochs*"
 
 ```
-(echo no. of epochs| nohup python Sentence_Classification_With_Gradient_Descent_Using_Alternate_Optimization_Technique.py > Sentence_Classification_Alternate_Optimize_Final_log_file.txt)&
+(echo no. of epochs| nohup python Sentence_Classification_Opt_Model_Param.py > Sentence_Classification_Opt_Model_Param_log_file.txt)&
 ```
 For example:
 ```
-(echo 15| nohup python Sentence_Classification_With_Gradient_Descent_Using_Alternate_Optimization_Technique.py > Sentence_Classification_Alternate_Optimize_Final_log_file.txt)&
+(echo 15| nohup python Sentence_Classification_Opt_Model_Param.py > Sentence_Classification_Opt_Model_Param_log_file.txt)&
 ```
 
 Otherwise run the following command, and enter the number of epochs to run as the input
 ```
-python Sentence_Classification_With_Gradient_Descent_Using_Alternate_Optimization_Technique.py
+python Sentence_Classification_Opt_Model_Param.py
 ```
 
 # Things to do
