@@ -4,7 +4,7 @@ We consider the problem of designing attention based neural models for text appl
 
 ### Current Status
 
-A linear combiner of word embeddings with equal weights is used to represent sentences and a linear classifier model is built to classify sentences. There are two implementations. In the first implementation only classifer model parameters are optimized with word embeddings fixed using Google word2vec. In the second implementation, we also optimize word embeddings initialized with Google word2vec. Model parameters and word embeddings are optimized using an alternate optimization technique. We have implemented several popular gradient descent based algorithms (e.g., momentum, RMSProp, AdaGrad) with samples used as mini-batches. 
+A linear combiner of word embeddings with equal weights is used to represent sentences and a linear classifier model is built to classify sentences. There are two implementations. In the first implementation only classifer model parameters are optimized with word embeddings fixed using Google word2vec. In the second implementation, we also optimize word embeddings initialized with Google word2vec. Model parameters and word embeddings are optimized using an alternate optimization technique. We have implemented several popular gradient descent based algorithms (e.g., momentum, RMSProp, AdaGrad - http://ruder.io/optimizing-gradient-descent/) with samples used as mini-batches. 
 
 Implementation 1. **Model parameters only** - Sentence_Classification_Opt_Model_Param.py </br>
 Implementation 2. **Model parameters and Word Embeddings** - Sentence_Classification_Opt_Mod_Param_And_Wrd_Emd.py </br>
@@ -13,26 +13,6 @@ Implementation 2. **Model parameters and Word Embeddings** - Sentence_Classifica
 
 1. The alternate optimization technique is currently being tested and evaluated.
 2. To build a non-linear classifier model with simple and sophisticated attention mechanism using tensorflow.
-
-## Optimization Algorithms
-
-Five gradient descent algorithms are used along with the three gradient descent variants in the aim of optimizing the objective function to get a better trained model. Gradient descent variants are chosen based on the sample size of the dataset that needs to be taken at a time. The three types of gradient descent variants are:
-
-1. **Batch Gradient Variant** - In this variant, the complete dataset is taken at a time to compute the variant </br>
-2. **Stochastic Gradient Variant** - In this variant, one random example from the dataset is taken to compute the variant </br>
-3. **Mini-Batch Gradient Variant** - In this variant, a set of examples in the form of a mini-batch are taken at a time to compute the gradient </br>
-
-The five gradient descent algorithms that are implemented in this experiment are:
-
-1. Gradient Descent Algorithm
-2. Momentum Algorithm
-3. Nesterov Accelerated Gradient Algorithm
-4. Adaptive Gradient Algorithm
-5. Root-Mean-Square Propagation Algorithm
-
-Reference for the methods/algorithms implemented - http://ruder.io/optimizing-gradient-descent/
-
-In this code, only mini-batch gradient variant is implemented. The next update will have the implementation for the remaining two variants.
 
 ## Datasets used in the experiment
 
