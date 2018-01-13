@@ -38,7 +38,7 @@ If running the code in the background, mention the number of epochs to run in th
 ```
 (echo no. of epochs| nohup python Sentence_Classification_Opt_Model_Param.py > Sentence_Classification_Opt_Model_Param_log_file.txt)&
 ```
-For example:
+Example:
 ```
 (echo 15| nohup python Sentence_Classification_Opt_Model_Param.py > Sentence_Classification_Opt_Model_Param_log_file.txt)&
 ```
@@ -47,6 +47,8 @@ Otherwise run the following command, and enter the number of epochs to run as th
 ```
 python Sentence_Classification_Opt_Model_Param.py
 ```
+
+The other implementation can also be run in a similar manner.
 
 # Things to do
 
