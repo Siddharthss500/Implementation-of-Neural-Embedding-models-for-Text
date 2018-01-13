@@ -1,24 +1,18 @@
 # Optimization For Sentence Classification Problem
 
-We consider the problem of designing attention based neural models for text applications such as sentence classification. We investigate several approaches and models to represent sentences for classification purpose. These include representing sentences using simple linear/non-linear combiner of word embeddings (with and without word embeddings optimization) and, Recurrent Neural Networks (RNNs) with and without attention mechanisms. Attention mechanism helps to focus on parts of sentences relevant for the task at hand. 
+We consider the problem of designing attention based neural models for text applications such as sentence classification. We investigate several approaches and models to represent sentences for classification purpose. These include representing sentences using simple linear/non-linear combiner of word embeddings (with and without word embeddings optimization) and, Recurrent Neural Networks (RNNs) with and without attention mechanisms. Attention mechanism helps to focus on parts of sentences relevant for the task at hand. There are three sets of parameters: classifier model parameters, sentence representation parameters (along with word embeddings) and attention model parameters; and, optimization can be done for various combinations of these sets.
 
 ### Current Status
 
-A linear combiner of word embeddings with equal weights is used to represent sentences and a linear classifier model is built to classify sentences. There are two implementations. In the first implementation only classifer model parameters are optimized with word embeddings fixed using Google word2vec. In the second implementation, we also optimize word embeddings initialized with Google word2vec. Model parameters and word embeddings are optimized using an alternate optimization technique. We have implemented several popular gradient descent based algorithms (e.g., momentum, RMSProp, AdaGrad) with samples used as mini-batches.  
+A linear combiner of word embeddings with equal weights is used to represent sentences and a linear classifier model is built to classify sentences. There are two implementations. In the first implementation only classifer model parameters are optimized with word embeddings fixed using Google word2vec. In the second implementation, we also optimize word embeddings initialized with Google word2vec. Model parameters and word embeddings are optimized using an alternate optimization technique. We have implemented several popular gradient descent based algorithms (e.g., momentum, RMSProp, AdaGrad) with samples used as mini-batches. 
 
-### Next Step
+Implementation 1. **Model parameters only** - Sentence_Classification_Opt_Model_Param.py </br>
+Implementation 2. **Model parameters and Word Embeddings** - Sentence_Classification_Opt_Mod_Param_And_Wrd_Emd.py </br>
 
-To build a non-linear classifier model with simple and sophisticated attention mechanism using tensorflow.
+### Next Steps
 
-## Scope of the project
-
-There are three sets of parameters and optimization can be done for all the three sets. The three sets are classifier model parameters, sentence representation parameters (along with word embeddings) and attention model parameters. 
-
-1. **Model parameters only** - Sentence_Classification_Opt_Model_Param.py </br>
-2. **Model parameters and Word Embeddings** - Sentence_Classification_Opt_Mod_Param_And_Wrd_Emd.py </br>
-3. **All three sets of parameters** - Next step </br>
-
-The alternate optimization technique is currently being tested and evaluated. The attention based mechanism will be implemented subsequently.
+1. The alternate optimization technique is currently being tested and evaluated.
+2. To build a non-linear classifier model with simple and sophisticated attention mechanism using tensorflow.
 
 ## Optimization Algorithms
 
