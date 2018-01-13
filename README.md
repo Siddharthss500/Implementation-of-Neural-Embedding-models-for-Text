@@ -75,5 +75,5 @@ python Sentence_Classification_With_Gradient_Descent_Using_Alternate_Optimizatio
 1. Create separate codes having different functionalities such as: </br>
   -> Various Gradient Descent algorithms along with the Gradient Descent variants </br>
   -> Clean the input file and compute word representation using Google word2vec </br>
-2. Modify the code to give more accessibility to the user i.e the user will be able to control the learning rate, select the algorithm to run along with a variant
+2. Modify the code to become more user friendly by giving more accessibility to the user i.e the user will be able to control the learning rate, select the algorithm to run along with a variant
 
