@@ -1,10 +1,8 @@
 # Optimization For Sentence Classification Problem
 
-Introduction to be written here - One small paragraph
+We consider the problem of designing attention based neural models for text applications such as sentence classification. We investigate several approaches and models to represent sentences for classification purpose. These include representing sentences using simple linear/non-linear combiner of word embeddings with and without word embeddings optimization and RNNs with and without attention mechanisms.
 
-About the problem and what is done here
-
-An alternate optimization technique is currently implemented which optimizes model parameters along with word embeddings. 
+Currently, a linear combiner of word embeddings with its optimization has been implemented using an alternate optimization algorithm. This alternate optimization algorithm optimizes model parameters alternatively with word embeddings.
 
 ### Next Step
 
@@ -17,8 +15,6 @@ The optimization takes place at three stages. The three stages are :
 1. **Model parameters** - (Mention the code name here) </br>
 2. **Word Embeddings** - (Mention the code name here) </br>
 3. **Attention based mechanism** - Future scope </br>
-
-Currently only the first two have been implented and the codes are present above. The attention based mechanism will be implemented in tensor flow by building a non-linear model.
 
 ## Optimization Algorithms
 
