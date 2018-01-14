@@ -16,7 +16,7 @@ Implementation 2. **Model parameters and Word Embeddings** - Sentence_Classifica
 1. The alternate optimization technique is currently being tested and evaluated.
 2. To build a non-linear classifier model with simple and sophisticated attention mechanism using tensorflow.
 
-## Datasets used in the experiment
+# Datasets used in the experiment
 
 Three publicly available datasets are used for experimentation. Each dataset contains 1000 sentences (500 positive and 500 negative) along with their corresponding labels. All are binary classification problems with class labels (good,bad). The datasets are:
 
