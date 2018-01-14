@@ -2,6 +2,10 @@
 
 We consider the problem of designing attention based neural models for text applications such as sentence classification. We investigate several approaches and models to represent sentences for classification purpose. These include representing sentences using simple linear/non-linear combiner of word embeddings (with and without word embeddings optimization) and, Recurrent Neural Networks (RNNs) with and without attention mechanisms. Attention mechanism helps to focus on parts of sentences relevant for the task at hand. There are three sets of parameters: classifier model parameters, sentence representation parameters (along with word embeddings) and attention model parameters; and, optimization can be done for various combinations of these sets.
 
+For this problem, as there are codes already available on the web my aim here is to learn the fundamentals and implement them from scratch. In this problem, with respect to sentence classification I am focusing on sentiment classification. When compared to other textual classification problems, sentiment classification is tricky because it is important to capture the semantics whilst capturing the important words. 
+
+With this ability to understand and implement this problem at a rudimentary level, I aim to solve different problems in other applications using this foundation.
+
 ### Current Status
 
 A linear combiner of word embeddings with equal weights is used to represent sentences and a linear classifier model is built to classify sentences. There are two implementations. In the first implementation only classifer model parameters are optimized with word embeddings fixed using Google word2vec. In the second implementation, we also optimize word embeddings initialized with Google word2vec. Model parameters and word embeddings are optimized using an alternate optimization technique. We have implemented several popular gradient descent based algorithms (e.g., momentum, RMSProp, AdaGrad - http://ruder.io/optimizing-gradient-descent/) with samples used as mini-batches. 
