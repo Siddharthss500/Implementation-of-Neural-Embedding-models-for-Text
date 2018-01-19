@@ -52,8 +52,6 @@ python Sentence_Classification_Opt_Model_Param.py
 
 The other implementation can also be run in a similar manner.
 
-Note : Sample results for both the codes are present in a '.pdf' format for the three datasets. (From left to right - Amazon dataset, IMDB dataset and Yelp dataset)
-
 # Things to do
 
 1. Create separate codes having different functionalities such as: </br>
