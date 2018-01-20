@@ -718,8 +718,8 @@ def grad_algo(train,train_scre,valid,valid_scre,test,test_scre,W,method,epoch,wo
     vector_represent = [{} for i in range(inn_count)]
     #Creating the training/validation/test datasets
     new_W = W
-    new_X = concat(train,valid)
-    Y = concat(train_scre,valid_scre)
+    new_X = train
+    Y = train_scre
     tot_len = len(new_X)
     new_chnge = np.zeros(dimension)
     total_iterations = int(math.ceil(float(tot_len)/mini_batch))
@@ -769,7 +769,7 @@ def grad_algo(train,train_scre,valid,valid_scre,test,test_scre,W,method,epoch,wo
                     #Recreating the sentence vector
                     train,valid,test = sentence_vector_recreate(posfile,negfile,vec_rep,train_rnge,valid_rnge,test_rnge,train,valid,test)    
                     #Recreating the updated training dataset
-                    new_X = concat(train,valid)
+                    new_X = train
                     #Updating the index values
                     if u!=(total_iterations - 2):
                         x_low += mini_batch
@@ -848,7 +848,7 @@ def grad_algo(train,train_scre,valid,valid_scre,test,test_scre,W,method,epoch,wo
                     #Recreating the sentence vector
                     train,valid,test = sentence_vector_recreate(posfile,negfile,vec_rep,train_rnge,valid_rnge,test_rnge,train,valid,test)    
                     #Recreating the updated training dataset
-                    new_X = concat(train,valid)
+                    new_X = train
                     #Updating the index values
                     if u!=(total_iterations - 2):
                         x_low += mini_batch
@@ -1019,8 +1019,7 @@ if __name__ == "__main__":
     print "The code has successfully completed running!! \n"
 
 """
+TO run the code in the background:
 (echo 15| nohup python Sentence_Classification_Opt_Mod_Param_And_Wrd_Emd.py > Sentence_Classification_Opt_Mod_Param_And_Wrd_Emd_log_file.txt)&
 
-
 """
-
