@@ -361,7 +361,7 @@ def grad_desc(Y,new_W,new_X,index,method):
 def momentum(Y,new_W,new_X,index,method,new_chnge):
     """ Momentum algorithm """
     #After various number of tests, the learning rates were decided as follows:
-    eta = 8
+    eta = 6
     old_chnge = new_chnge
     #Computing the gradient value
     derv_value = derv_func(Y,new_W,new_X,index,method)
@@ -377,7 +377,7 @@ def momentum(Y,new_W,new_X,index,method,new_chnge):
 def nest_acclr_grad(Y,new_W,new_X,index,method,new_chnge):
     """ Nesterov Accelerated Gradient algorithm """
     #After various number of tests, the learning rates were decided as follows:
-    eta = 8
+    eta = 6
     old_chnge = new_chnge
     new_W = np.array(new_W) + np.array([e * alpha for e in old_chnge])
     #Computing the gradient value
@@ -480,8 +480,8 @@ def grad_algo(train,train_scre,valid,valid_scre,test,test_scre,W,method,epoch,al
     var_values = [[] for i in range(inn_count)]
     #Creating the training/validation/test datasets
     new_W = W
-    new_X = concat(train,valid)
-    Y = concat(train_scre,valid_scre)
+    new_X = train
+    Y = train_scre
     tot_len = len(new_X)
     new_chnge = np.zeros(dimension)
     total_iterations = int(math.ceil(float(tot_len)/mini_batch))
@@ -678,7 +678,7 @@ if __name__ == "__main__":
         mat_score = concat(pos_score,neg_score)
         print "Combined the two files into one single file \n"
         #Implementation of the logistic regression using objective function
-        #Optimizing the model parameter and word embeddings by using various optimization algorithms
+        #Optimizing the model parameters by using various optimization algorithms
         print "The various algorithms for mini-batch variant are run \n"
         #Running only Mini-Batch Method
         method = 3
@@ -696,4 +696,3 @@ To run the code in the background:
 (echo 15| nohup python Sentence_Classification_Opt_Model_Param.py > Sentence_Classification_Opt_Model_Param_log_file.txt)&
 
 """
-
