@@ -15,6 +15,9 @@ import matplotlib.pyplot as plt
 #plt.switch_backend('agg')
 from matplotlib.backends.backend_pdf import PdfPages
 import pickle
+#pip install plotly or sudo pip install (If not installed)
+from plotly.offline import plot
+import plotly.graph_objs as go
 
 
 # Defining the global variables
@@ -24,7 +27,7 @@ epsilon = 1e-8
 gamma = 0.9
 eps = [epsilon for o in range(dimension)]
 mini_batch = 128
-names = ['Gradient Descent','Momentum','Nesterov Accelerated Gradient','Ada grad','RMS prop','Ada delta']
+names = ['Gradient Descent','Momentum','Nesterov Accelerated Gradient','Ada grad','RMS prop']
 labels = ['Stochastic','Momentum','NAG','Adagrad','RMSprop']
 variants = ['Batch Gradient Method','Stochastic Gradient Method','Mini-Batch Gradient Method']
 
@@ -544,6 +547,20 @@ def grad_algo(train,train_scre,valid,valid_scre,test,test_scre,W,method,epoch,al
                 valid_acc[inn_loop_count] = valid_accuracy
                 test_acc[inn_loop_count] = test_accuracy
                 inn_loop_count += 1
+    #Obtaining the best model by finding the best validation accuracy
+    best_valid_acc = max(valid_acc)
+    #Finding which epoch has the best validation accuracy
+    epoch_list = [f for f in iterations if valid_acc[f] == best_valid_acc]
+    fin_epoch_val = min(epoch_list)
+    #Getting the corresponding test accuracy
+    correspdng_test_acc = test_acc[fin_epoch_val]
+    #Cross-checking by finding the best test accuracy and finding the corresponding validation accuracy
+    best_test_acc = max(test_acc)
+    #Finding which epoch has the best test accuracy
+    epoch_list_2 = [f for f in iterations if test_acc[f] == best_test_acc]
+    fin_epoch_val_2 = min(epoch_list_2)
+    #Getting the corresponding validation accuracy
+    correspdng_valid_acc = test_acc[fin_epoch_val_2]
     print "\n"
     print "Final value of model parameter after update ", var_values[i]
     print "Output of the objective function ", obj_func_values[i]
@@ -552,7 +569,7 @@ def grad_algo(train,train_scre,valid,valid_scre,test,test_scre,W,method,epoch,al
     plt.ylabel('Objective function output')
     plt.title(names[algo])
     plt.show()
-    return iterations,obj_func_values,var_values[i],train_acc,valid_acc,test_acc
+    return iterations,obj_func_values,var_values[i],train_acc,valid_acc,test_acc,best_valid_acc,fin_epoch_val,correspdng_test_acc,best_test_acc,fin_epoch_val_2,correspdng_valid_acc
 
 def gradient_descent(mat_fin,mat_score,method,epoch,filenames):
     """ Runs all the optimization algorithms for various methods """
@@ -567,23 +584,39 @@ def gradient_descent(mat_fin,mat_score,method,epoch,filenames):
     else:
         word = variants[2]
     filname = 'Algorithms ' + word + ' ' + filenames
+    filname2 = 'Algorithms ' + word + ' ' + filenames + ' Best Validation'
+    filname3 = 'Algorithms ' + word + ' ' + filenames + ' Best Test'
     #Shuffling the complete data before splitting the data into training/validation/test
     mat_fin,mat_score = rand_samp(mat_fin,mat_score)
     #Splitting the data into train/valid/test datasets
     train,train_scre,valid,valid_scre,test,test_scre = gen_train_valid_test(mat_fin,mat_score)
     #Opening a file and dumping all the data
     file_name = open(filname,"wb")
+    #Opening a file and dumping the accuracies for the best validation model
+    file_name2 = open(filname2,"wb")
+    #Opening a file and dumping the accuracies for the best test model
+    file_name3 = open(filname3,"wb")
     for i in numbers:    
         print "Running ",names[i],"algorithm using",word,"\n"
-        iter_1, obj_vals_1, var_vals_1,train_acc,valid_acc,test_acc = grad_algo(train,train_scre,valid,valid_scre,test,test_scre,W_val,method,epoch,i)
+        iter_1, obj_vals_1, var_vals_1,train_acc,valid_acc,test_acc,best_valid_acc,fin_epoch_val,correspdng_test_acc,best_test_acc,fin_epoch_val_2,correspdng_valid_acc = grad_algo(train,train_scre,valid,valid_scre,test,test_scre,W_val,method,epoch,i)
         #Dumping the data in the file
         pickle.dump(iter_1,file_name)
         pickle.dump(obj_vals_1,file_name)
         pickle.dump(train_acc,file_name)
         pickle.dump(valid_acc,file_name)
         pickle.dump(test_acc,file_name)
+        #Dumping the best model validation,test accuracies along with its epoch number
+        pickle.dump(best_valid_acc,file_name2)
+        pickle.dump(fin_epoch_val,file_name2)
+        pickle.dump(correspdng_test_acc,file_name2)
+        #Dumping the best values for the best test accuracies for cross vaidation
+        pickle.dump(best_test_acc,file_name3)
+        pickle.dump(fin_epoch_val_2,file_name3)
+        pickle.dump(correspdng_valid_acc,file_name3)
     file_name.close()
-    return filname
+    file_name2.close()
+    file_name3.close()
+    return filname,filname2,filname3
 
 def plot_graph(filename):
     """ Plots the graphs """
@@ -620,6 +653,41 @@ def plot_graph(filename):
     fig.subplots_adjust(left=0.05, bottom=None, right=3.0, top=5.5, wspace=0.3, hspace=0.2)
     return fig
 
+def store_table(filename,table):
+    """ Creates tables of the best validation and test accuracy in order to
+    identify the best model """
+    count = 0
+    #Setting the inital parameters
+    valid_acc,epoch_no,test_acc = ([0,0,0,0,0] for i in range(3))
+    valid_acc_all,epoch_no_all,test_acc_all = ({} for i in range(3))
+    for i in range(0,3):
+        files = open(filename[count],"rb")
+        count += 1
+        for j in range(0,5):
+            valid_acc[j] = pickle.load(files)
+            epoch_no[j] = pickle.load(files)
+            test_acc[j] = pickle.load(files)
+        valid_acc_all[i] = list(valid_acc)
+        epoch_no_all[i] = list(epoch_no)
+        test_acc_all[i] = list(test_acc)
+        files.close()
+    if table == 1:
+        vals = ['Algorithm Name', 'Best Validation Accuracy', 'Epoch number', 'Corresponding Test Accuracy']
+    else:
+        vals = ['Algorithm Name', 'Best Test Accuracy', 'Epoch number', 'Corresponding Validation Accuracy']
+    #Creating the table
+    for i in range(0,3):
+        trace = go.Table(
+                header=dict(values=vals),
+                cells=dict(values=[names,
+                                   valid_acc_all[i],
+                                   epoch_no_all[i],
+                                   test_acc_all[i]]),
+                name='Test')
+        data = [trace]
+        fil_name = filename[i] + '.html'
+        plot(data,filename=fil_name)
+
 def store_graph(fig):
     """Stores all the figures to create one PDF output """
     title = 'Optimization Results for Model Parameters'
@@ -637,7 +705,7 @@ if __name__ == "__main__":
     filenames = ['amazon_cells_labelled','imdb_labelled','yelp_labelled']
     datafilname = 'GoogleNews-vectors-negative300.bin'
     fig = plt.subplots(4,3)
-    fil_name = ['','','']
+    fil_name,fil_name2,fil_name3 = [['','',''] for r in range(3)]
     #Taking input for no. of epochs to run
     print "Please enter the no. of epochs the program has to run"
     epoch_val = long(raw_input())    
@@ -682,13 +750,19 @@ if __name__ == "__main__":
         print "The various algorithms for mini-batch variant are run \n"
         #Running only Mini-Batch Method
         method = 3
-        fil_name[i] = gradient_descent(mat_fin,mat_score,method,epoch_val,filenames[i])
+        fil_name[i],fil_name2[i],fil_name3[i] = gradient_descent(mat_fin,mat_score,method,epoch_val,filenames[i])
         print "\n"
         print "The code has completed running for " + filenames[i] + " dataset \n"
     print "Plotting all the graphs"
     fig = plot_graph(fil_name)
     print "Storing all the graphs in a pdf file"
     store_graph(fig)
+    table = 1
+    print "Creating the table1"
+    store_table(fil_name2,table)
+    table = 0
+    print "Creating the table2"
+    store_table(fil_name3,table)
     print "The code has successfully completed running!! \n"
 
 """
