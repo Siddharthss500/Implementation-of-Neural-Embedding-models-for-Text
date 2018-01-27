@@ -42,7 +42,7 @@ If running the code in the background, mention the number of epochs to run in th
 ```
 Example:
 ```
-(echo 15| nohup python Sentence_Classification_Opt_Model_Param.py > Sentence_Classification_Opt_Model_Param_log_file.txt)&
+(echo 10| nohup python Sentence_Classification_Opt_Model_Param.py > Sentence_Classification_Opt_Model_Param_log_file.txt)&
 ```
 
 Otherwise run the following command, and enter the number of epochs to run as the input
@@ -51,6 +51,8 @@ python Sentence_Classification_Opt_Model_Param.py
 ```
 
 The other implementation can also be run in a similar manner.
+
+Note : Sample results for both the codes are present in a '.pdf' format for the three datasets. (From left to right - Amazon dataset, IMDB dataset and Yelp dataset)
 
 # Things to do
 
